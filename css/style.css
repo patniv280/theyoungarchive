@@ -309,3 +309,38 @@ p { color: var(--ink-soft); }
 }
 .issue-card .foot a { color: #f0c9a8; text-decoration: none; }
 .issue-card .foot a:hover { text-decoration: underline; }
+
+/* ---------- staff grid (4-up, smaller than founder cards) ---------- */
+.staff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+@media (max-width: 900px) { .staff-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .staff-grid { grid-template-columns: 1fr; } }
+.staff-card { background: var(--cream); border: 2px solid var(--ink); border-radius: 22px; overflow: hidden; box-shadow: 0 5px 0 var(--ink); transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease; }
+.staff-card:hover { transform: translateY(-5px) rotate(-1deg); box-shadow: 0 8px 0 var(--ink); }
+.staff-card .photo { aspect-ratio: 1/1; overflow: hidden; }
+.staff-card .photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.staff-card:hover .photo img { transform: scale(1.06); }
+.staff-card .info { padding: 16px 16px 20px; }
+.staff-card h4 { font-size: 16px; font-weight: 600; margin: 0 0 3px; font-family: var(--display); }
+.staff-card .role-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--coral-deep); }
+
+/* blank/placeholder avatar for people without a submitted photo */
+.avatar-blank {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--archive-green-2), var(--archive-green));
+  color: var(--cream); font-family: var(--script); font-size: 34px;
+}
+
+/* ---------- open position cards (unfilled roles) ---------- */
+.position-card { background: var(--cream); border: 2px dashed var(--ink); border-radius: 22px; overflow: hidden; box-shadow: 0 5px 0 var(--ink); transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease; }
+.position-card:hover { transform: translateY(-5px) rotate(1deg); box-shadow: 0 8px 0 var(--ink); }
+.position-card .art {
+  aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center;
+  background: repeating-linear-gradient(135deg, var(--cream-2), var(--cream-2) 10px, var(--paper-2, var(--cream)) 10px, var(--paper-2, var(--cream)) 20px);
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--coral-deep);
+}
+.position-card .info { padding: 18px 20px 22px; }
+.position-card h4 { font-size: 18px; font-weight: 600; margin: 0 0 8px; font-family: var(--display); }
+.position-card p { font-size: 14px; margin-bottom: 14px; }
+
+/* founder quote-style bio */
+.founder-quote { font-family: var(--display); font-style: italic; font-weight: 500; font-size: 15.5px; line-height: 1.55; color: var(--ink-soft); }
