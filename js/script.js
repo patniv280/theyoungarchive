@@ -1,3 +1,20 @@
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+  document.addEventListener('click', (e) => {
+    if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+      navLinks.classList.remove('open');
+    }
+  });
+}
+
 // Scroll-reveal: fade + rise elements into view as the page scrolls
 const revealEls = document.querySelectorAll('.reveal');
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
